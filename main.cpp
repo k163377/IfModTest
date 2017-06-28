@@ -5,43 +5,64 @@ using namespace std;
 
 constexpr int MAX = 1000000000;
 
-int If(){
+inline int If2(){
     int i = 0;
     int j = 0;
 
     chrono::system_clock::time_point start, end;
-
-    start = std::chrono::system_clock::now();
+    start = chrono::system_clock::now();
     while(i < MAX) {
-        if((j+=1) == 100) j = 0;
+        if(!(100 - (j+=1))) j = 0;
         i++;
     }
-    end = std::chrono::system_clock::now();
+    end = chrono::system_clock::now();
 
-    cout << "if time\t\t:" << chrono::duration_cast<std::chrono::milliseconds>(end-start).count() <<endl;
+    cout << "if2 time\t:" << chrono::duration_cast<chrono::milliseconds>(end-start).count() <<endl;
 
     return i + j;
 }
 
-int Mod(){
+inline int If(){
     int i = 0;
     int j = 0;
 
     chrono::system_clock::time_point start, end;
+    start = chrono::system_clock::now();
+    while(i < MAX) {
+        if((j+=1) == 100) j = 0;
+        i++;
+    }
+    end = chrono::system_clock::now();
 
-    start = std::chrono::system_clock::now();
+    cout << "if time\t\t:" << chrono::duration_cast<chrono::milliseconds>(end-start).count() <<endl;
+
+    return i + j;
+}
+
+inline int Mod(){
+    int i = 0;
+    int j = 0;
+
+    chrono::system_clock::time_point start, end;
+    start = chrono::system_clock::now();
     while(i < MAX){
         j = (j+1)%100;
         i++;
     }
-    end = std::chrono::system_clock::now();
+    end = chrono::system_clock::now();
 
-    cout << "mod time\t:" << chrono::duration_cast<std::chrono::milliseconds>(end-start).count() <<endl;
+    cout << "mod time\t:" << chrono::duration_cast<chrono::milliseconds>(end-start).count() <<endl;
 
     return i + j;
 }
 
 int main() {
-    cout << "if result\t:" << If() << '\n' << "mod result\t:" << Mod() << endl;
+    int Ifres, Ifres2, Modres;
+
+    Ifres = If();
+    Ifres2 = If2();
+    Modres = Mod();
+
+    cout << "if result\t:" << Ifres << '\n' << "if2 result\t:" << Ifres2 << '\n' << "mod result\t:" << Modres << endl;
     return 0;
 }
