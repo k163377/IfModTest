@@ -18,7 +18,7 @@ int If(){
     }
     end = std::chrono::system_clock::now();
 
-    cout << chrono::duration_cast<std::chrono::milliseconds>(end-start).count() <<endl;
+    cout << "if time\t\t:" << chrono::duration_cast<std::chrono::milliseconds>(end-start).count() <<endl;
 
     return i + j;
 }
@@ -36,13 +36,13 @@ int Mod(){
     }
     end = std::chrono::system_clock::now();
 
-    cout << chrono::duration_cast<std::chrono::milliseconds>(end-start).count() <<endl;
+    cout << "mod time\t:" << chrono::duration_cast<std::chrono::milliseconds>(end-start).count() <<endl;
 
     return i + j;
 }
 
 int main() {
-    cout << "if:\t" << If() << '\n' << "Mod:\t" << Mod() << endl;
+    cout << "if result\t:" << If() << '\n' << "mod result\t:" << Mod() << endl;
 
     //std::cout << "Hello, World!" << std::endl;
     return 0;
