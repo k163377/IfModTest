@@ -43,7 +43,5 @@ int Mod(){
 
 int main() {
     cout << "if result\t:" << If() << '\n' << "mod result\t:" << Mod() << endl;
-
-    //std::cout << "Hello, World!" << std::endl;
     return 0;
 }
